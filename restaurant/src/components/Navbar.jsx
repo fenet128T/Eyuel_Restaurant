@@ -55,22 +55,22 @@ const Navbar = () => {
                 </li>
               ))}
               {/* dropdown */}
-              <li className="cursor-pointer group relative">
+              <li className="cursor-pointer group  ">
                 <a
                   href="/#"
                   className="inline-block hover:text-primary text-xl font-semibold"
                 >
                   <div className="flex items-center gap-[2px] py-2">
-                    dropdown
+                    Categories
                     <span>
                       <FaCaretDown className="group-hover:rotate-180 duration-300" />
                     </span>
                   </div>
                 </a>
                 {/* dropdown sec */}
-                <div className="absolute z-[9999] group-hover:block w-[200px] bg-white text-black shadow-md">
+                <div className="absolute z-[9999] hidden group-hover:block w-[200px] bg-white text-black shadow-md">
                   <ul>
-                    {DropdownLinks.map(({id, name, link}) => (
+                    {DropdownLinks.map(({ id, name, link }) => (
                       <li key={id}>
                         <a
                           href={link}
@@ -82,6 +82,12 @@ const Navbar = () => {
                     ))}
                   </ul>
                 </div>
+              </li>
+              {/* QR */}
+              <li>
+                <button>
+
+                </button>
               </li>
             </ul>
           </div>
