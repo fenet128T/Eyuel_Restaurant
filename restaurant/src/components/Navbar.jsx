@@ -45,21 +45,22 @@ const Navbar = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const qrRef = useRef(null);
 
+  // eslint-disable-next-line no-unused-vars
   const scrollToQRSection = () => {
     qrRef.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <>
       <div className="bg-transparent shadow-md rounded-lg my-2 mx-24">
-        <div className="container flex justify-between py-50 sm:py-25">
+        <div className="container flex justify-between py-50 p-0 sm:py-25">
           {/* logo section*/}
-          <div className=" h-12  flex ">
+          <div className=" h-13 flex ">
             <img
               className="logo w-16 h-25 m-0"
               src={logo}
               alt="Eyuel Logo"
             />
-            <span className="text-3xl p-3  text-yellow-600 font-serif">
+            <span className="text-3xl mt-4  text-yellow-600 font-serif">
               Eyuel
             </span>
           </div>
