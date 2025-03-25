@@ -9,6 +9,7 @@ export default {
         secondary: "#21D4B9",
         dark: "#303030",
       },
+   
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         cursive: ["Ephesis", "cursive"],

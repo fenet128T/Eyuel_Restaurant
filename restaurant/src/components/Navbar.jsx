@@ -1,5 +1,7 @@
-import React from "react";
-import { FaCaretDown } from "react-icons/fa";
+import React, { useRef, useState } from "react";
+import { FaCaretDown, FaBars, FaTimes } from "react-icons/fa";
+import logo from "../../src/assets/eyulogo-Photoroom.png";
+// import logo2 from "../../src/assets/qr-code.png";
 const NavLinks = [
   {
     id: 1,
@@ -14,6 +16,11 @@ const NavLinks = [
   {
     id: 3,
     name: "Contact",
+    link: "/#",
+  },
+  {
+    id: 4,
+    name: "QR",
     link: "/#",
   },
 ];
@@ -35,20 +42,46 @@ const DropdownLinks = [
   },
 ];
 const Navbar = () => {
+  const [isNavVisible, setIsNavVisible] = useState(false);
+  const qrRef = useRef(null);
+
+  const scrollToQRSection = () => {
+    qrRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
-      <div className="bg-white shadow-md">
-        <div className="container flex justify-between py-4 sm:py-3">
+      <div className="bg-transparent shadow-md rounded-lg my-2 mx-24">
+        <div className="container flex justify-between py-50 sm:py-25">
           {/* logo section*/}
-          <div className="font-bold text-3xl">Logo</div>
+          <div className=" h-12  flex ">
+            <img
+              className="logo w-16 h-25 m-0"
+              src={logo}
+              alt="Eyuel Logo"
+            />
+            <span className="text-3xl p-3  text-yellow-600 font-serif">
+              Eyuel
+            </span>
+          </div>
+          {/* Toggler Button */}
+          <button
+            className="text-3xl sm:hidden"
+            onClick={() => setIsNavVisible(!isNavVisible)}
+          >
+            {isNavVisible ? <FaTimes /> : <FaBars />}
+          </button>
           {/* NavLink section */}
-          <div>
-            <ul className="flex items-center gap-10">
+          <div
+            className={`${
+              isNavVisible ? "block" : "hidden"
+            } sm:flex flex-col sm:flex-row items-center gap-8 bg-white sm:bg-transparent absolute sm:static top-14 left-0 w-full sm:w-auto shadow-md sm:shadow-none z-10`}
+          >
+            <ul className="flex flex-col sm:flex-row items-center gap-8">
               {NavLinks.map(({ id, name, link }) => (
                 <li key={id}>
                   <a
                     href={link}
-                    className="inline-block hover:text-primary text-xl font-semibold"
+                    className="inline-block hover:text-yellow-600 text-xl font-semibold"
                   >
                     {name}
                   </a>
@@ -58,7 +91,7 @@ const Navbar = () => {
               <li className="cursor-pointer group  ">
                 <a
                   href="/#"
-                  className="inline-block hover:text-primary text-xl font-semibold"
+                  className="inline-block hover:text-yellow-600 text-xl font-semibold"
                 >
                   <div className="flex items-center gap-[2px] py-2">
                     Categories
@@ -84,15 +117,27 @@ const Navbar = () => {
                 </div>
               </li>
               {/* QR */}
-              <li>
-                <button>
-
-                </button>
-              </li>
+              {/* <li>
+                <button
+                  className="text-xl font-semibold hover:text-yellow-600"
+                  onClick={scrollToQRSection}
+                ></button>
+              </li> */}
             </ul>
           </div>
         </div>
       </div>
+
+      {/* QR Section */}
+      {/* <div
+        ref={qrRef}
+        className="bg-gray-100 py-20 mt-10 flex  justify-end items-center"
+      >
+        <div className="flex flex-col items-center mr-10">
+          <img className="w-24 h-24 mb-2" src={logo2} alt="qr code" />
+          <p className="text-1xl">scan to get the menu.</p>
+        </div>
+      </div> */}
     </>
   );
 };
