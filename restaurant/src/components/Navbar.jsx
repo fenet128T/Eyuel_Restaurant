@@ -51,8 +51,9 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="bg-transparent shadow-md rounded-lg my-2 mx-24">
-        <div className="container flex justify-between py-50 p-0 sm:py-25">
+      <div className="bg-transparent shadow-sm
+       rounded-2xl my-2 mx-24">
+        <div className="container  flex justify-between px-0 p-0 sm:py-26">
           {/* logo section*/}
           <div className=" h-13 flex ">
             <img
@@ -60,8 +61,8 @@ const Navbar = () => {
               src={logo}
               alt="Eyuel Logo"
             />
-            <span className="text-3xl mt-4  text-yellow-600 font-serif">
-              Eyuel
+            <span className="text-3xl mt-4 pr-2 text-yellow-600 mr-20 font-cursive">
+              EYUEL
             </span>
           </div>
           {/* Toggler Button */}
@@ -75,9 +76,9 @@ const Navbar = () => {
           <div
             className={`${
               isNavVisible ? "block" : "hidden"
-            } sm:flex flex-col sm:flex-row items-center gap-8 bg-white sm:bg-transparent absolute sm:static top-14 left-0 w-full sm:w-auto shadow-md sm:shadow-none z-10`}
+            } sm:flex flex-col sm:flex-row items-center gap-8 bg-white absolute sm:static top-16 left-0 w-full sm:w-auto  sm:shadow-none z-10`}
           >
-            <ul className="flex flex-col sm:flex-row items-center gap-8">
+            <ul className="flex flex-col sm:flex-row items-center  gap-5">
               {NavLinks.map(({ id, name, link }) => (
                 <li key={id}>
                   <a
@@ -102,7 +103,7 @@ const Navbar = () => {
                   </div>
                 </a>
                 {/* dropdown sec */}
-                <div className="absolute z-[9999] hidden group-hover:block w-[200px] bg-white text-black shadow-md">
+                <div className="absolute z-[9999] hidden group-hover:block w-[200px] bg-transparent text-black shadow-md">
                   <ul>
                     {DropdownLinks.map(({ id, name, link }) => (
                       <li key={id}>
@@ -118,12 +119,12 @@ const Navbar = () => {
                 </div>
               </li>
               {/* QR */}
-              {/* <li>
+              <li>
                 <button
                   className="text-xl font-semibold hover:text-yellow-600"
                   onClick={scrollToQRSection}
                 ></button>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>
