@@ -54,7 +54,7 @@ const WhyChoose = () => {
               </p>
             </div>
           </div>
-       </div>
+        </div>
       </div>
     </>
   );
