@@ -16,7 +16,7 @@ const NavLinks = [
   {
     id: 3,
     name: "Contact",
-    link: "/#",
+    link: "#Footer.jsx",
   },
   {
     id: 4,
